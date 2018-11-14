@@ -1,0 +1,26 @@
+html,
+body {
+  height: 100%;
+}
+
+.h-90 {
+  height: 90%;
+}
+
+.h-10 {
+  height: 10%;
+}
+
+.background-img {
+  /* background-image: url('autumn-colors-autumn-colours-autumn-leaves-1563356.jpg');
+   */
+  background-color: rgb(107, 107, 107);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: relative; */
+}
+
+.login-background {
+  background-color: rgba(255, 255, 255, 0.3);
+}
