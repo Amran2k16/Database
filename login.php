@@ -6,8 +6,6 @@
   <head>
     <meta charset="utf-8" />
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="login.css" rel="stylesheet" type="text/css" />
-
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
