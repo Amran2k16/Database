@@ -1,14 +1,16 @@
 <?php 
 
-$servername = "localhost";
-$dBUsername = "root";
-$dBPassword = "";
-$dBName = "loginsystem";
+$servername = 'mysql.cs.nott.ac.uk';
+$username = 'psxma10';
+$password = 'hello123';
+$dbasename= 'psxma10';
 
-//Connection to database
-$conn = mysqli_connect($servername, $dBUsername,$dBPassword,$dBName);
+// $conn = new mysqli($servername, $username, $password, $dbasename);
 
-//Kill if connection fails and pass error
+$conn = mysqli_connect($servername, $username, $password, $dbasename);
+
 if (!$conn) {
     die("Connection failed: ".mysqli_connect_error());
 }
+
+?>

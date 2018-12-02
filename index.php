@@ -8,6 +8,7 @@
 ?>
 
     <main>
+        <?php echo "<h2> Welcome " . $_SESSION["username"] . "</h2>"; ?>
         <div class="container">
             <div class="card-columns">
                 <div class="card bg-primary">

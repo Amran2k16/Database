@@ -7,27 +7,27 @@ include 'layout/header.php';?>
       <table class="table bg-light">
         <tr>
           <th>First Name</th>
-          <th>Amran</th>
+          <th><?php echo $_SESSION["firstname"] ?></th>
         </tr>
         <tr>
           <th>Last Name</th>
-          <th>Ahmed</th>
+          <th><?php echo $_SESSION["lastname"] ?></th>
         </tr>
         <tr>
           <th>Student ID</th>
-          <th>312389</th>
+          <th><?php echo $_SESSION["userID"] ?></th>
         </tr>
         <tr>
           <th>Course Enrolled In</th>
-          <th>MSC Computer Science</th>
+          <th><?php echo $_SESSION["course"] ?></th>
         </tr>
         <tr>
           <th>Accommodation</th>
-          <th>Manor Villages</th>
+          <th>...</th>
         </tr>
         <tr>
-          <th>Phone Number</th>
-          <th>0889231723</th>
+          <th>Email Address</th>
+          <th><?php echo $_SESSION["email"] ?></th>
         </tr>
       </table>
     </div>
