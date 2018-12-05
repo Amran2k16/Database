@@ -24,3 +24,20 @@ body {
 .login-background {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+.signuperror {
+  color: red;
+}
+
+.module-hover:hover {
+  background-color: rgba(201, 196, 196, 0.568);
+  cursor: pointer;
+}
+
+.table-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.37);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  color: rgba(0, 0, 255, 0.301);
+}
