@@ -41,10 +41,10 @@
       crossorigin="anonymous"
     ></script>
 </head>
-<body>
+<body class="">
 
     <!-- Overall container for entire website -->
-    <div class="container-fluid h-100 flex-column">
+    <div class="container-fluid h-100 flex-column ">
 
         <!-- Top row of the website -->
         <div class="row h-10 align-items-center">
@@ -60,10 +60,10 @@
         </div>
 
         <!-- sidebar and content area -->
-        <div class="row h-90">
+        <div class="row h-90 ">
 
             <!-- Sidebar/navigation of website -->
-            <div class="col-2 bg-dark h-100">
+            <div class="col-2 bg-dark h-100 ">
                 <nav class="nav nav-pills nav-fill flex-column">
                     <a class="nav-link btn btn-secondary mb-2 mt-3 " href="index.php">Dashboard</a>
                     <a class="nav-link btn btn-secondary mb-2" href="modules.php">Modules</a>
@@ -74,7 +74,7 @@
             </div>
 
             <!-- main content section -->
-            <div class="col-10 mt-3">
+            <div class="col-10 mt-3 " >
             
 
 

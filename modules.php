@@ -15,7 +15,7 @@
     
             <!-- Accordian created using bootstrap4  -->
             <!-- <div class="row flex-column"> -->
-                 <div class=" table-header">
+                <div class=" table-header">
                     <div class="row">
                         <div class="col">Code</div>
                         <div class="col">Title</div>
@@ -31,7 +31,26 @@
                     <!-- Module 1  -->
 
                     <?php
-                        $sql = "SELECT moduleID, Title, Credits, Semester, Level, Description FROM Module";
+                        //Select only the modules the user has enrolled in
+                        // get all the modules they have enrolled in into an array  
+                        $sql = "SELECT * FROM Module";
+                        $userID = $_SESSION["userID"];
+                        echo $userID;
+                        
+                        // $modulesEnrolledIn = "SELECT moduleID from EnrolledIn WHERE userID=$userID";
+                        // echo $modulesEnrolledIn;
+
+                        // $product = mysqli_query($conn, $modulesEnrolledIn);
+                        // if (mysqli_num_rows($result) > 0) {
+                        //     while($row = mysqli_fetch_assoc($product))
+                        //         $moduleID = $row["moduleID"];
+                        //         echo $moduleID;
+                        // }
+
+                        // $sql = "SELECT moduleID, Title, Credits, Semester, Level, Description FROM Module
+                        // WHERE (SELECT moduleID from EnrolledIn WHERE userID==$userID)
+                        
+
                         $result = mysqli_query($conn, $sql);
 
                         $i = 0; 
@@ -57,7 +76,7 @@
                                     </div>
                                 </div>
 
-                                <div id='collapse".$i."' class='collapse show' aria-labelledby='headingOne' data-parent='#accordion'>
+                                <div id='collapse".$i."' class='collapse hide' aria-labelledby='headingOne' data-parent='#accordion'>
                                 <div class='card-body'>
                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
                                     richardson ad
@@ -91,9 +110,9 @@
                    
 
                     <!-- Add a module -->
-                    <button class="col-4 btn-light offset-8">
-                        Add a module
-                    </button>
+                    <a class="col-4 mt-2 btn btn-light offset-8 border" href="moduleCatalogue.php" >
+                        Enroll to a new module 
+                    </a>
                 </div>
             </div>
     </main>
