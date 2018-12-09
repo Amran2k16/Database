@@ -59,6 +59,8 @@
                     </form>
                    
                   </div>
+
+
                   <div class="tab-pane fade" id="nav-profile" role="tabpanel"  aria-labelledby="nav-profile-tab">
                     <!-- Sign Up -->
                     <?php 
@@ -83,7 +85,7 @@
                     //     echo '<p class="signupsuccess">Successfully created an account</p>';
                     //   }
                     ?>
-                    <form class="mt-2" id="signupform" action="includes/signup.inc.php" method="post">
+                    <form class="mt-2" id="signupform" action="includes/signup.inc.php" method="POST">
                       <div class="row">
                         <div class="col">
                           <input type="text" class="form-control" name="uid" placeholder="Username">

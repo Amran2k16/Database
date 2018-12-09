@@ -26,31 +26,29 @@
                 
                 <div class='accordion' id='accordion'>
                 
-                    
-                    <!-- Foreach module the user is enrolled in display this information -->
-                    <!-- Module 1  -->
 
                     <?php
-                        //Select only the modules the user has enrolled in
-                        // get all the modules they have enrolled in into an array  
-                        $sql = "SELECT * FROM Module";
-                        $userID = $_SESSION["userID"];
-                        echo $userID;
+
+                        $userID=$_SESSION["userID"];
+
+                        // GET ALL MODULES ENROLLED IN
+                        $moduleID = "SELECT * from EnrolledIn WHERE userID = $userID";
+                        $modulesEnrolledIn= array();
+                        $result = mysqli_query($conn, $moduleID);
+
+                        if (mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                array_push($modulesEnrolledIn ,$row["moduleID"]);
+                            }
+                        }else{
+                            echo '0 results';
+                        }
+                        // join the array to a string
+                        $modulesEnrolledJoin = join("','",$modulesEnrolledIn);
+
+                        // get only the modules with the moduleID of those you have enrolled In
+                        $sql = "SELECT * from Module WHERE Module.moduleID IN ('$modulesEnrolledJoin')"; 
                         
-                        // $modulesEnrolledIn = "SELECT moduleID from EnrolledIn WHERE userID=$userID";
-                        // echo $modulesEnrolledIn;
-
-                        // $product = mysqli_query($conn, $modulesEnrolledIn);
-                        // if (mysqli_num_rows($result) > 0) {
-                        //     while($row = mysqli_fetch_assoc($product))
-                        //         $moduleID = $row["moduleID"];
-                        //         echo $moduleID;
-                        // }
-
-                        // $sql = "SELECT moduleID, Title, Credits, Semester, Level, Description FROM Module
-                        // WHERE (SELECT moduleID from EnrolledIn WHERE userID==$userID)
-                        
-
                         $result = mysqli_query($conn, $sql);
 
                         $i = 0; 

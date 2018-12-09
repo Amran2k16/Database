@@ -12,12 +12,14 @@
 
 
 // connect to my local host
-$servername = 'localhost';
+$servername = '127.0.0.1';
 $username = 'amran';
 $password = 'hello123';
 $dbasename= 'databasemodule';
 
-$conn = mysqli_connect($servername, $username, $password, $dbasename);
+// $conn = mysqli_connect($servername, $username, $password, $dbasename);
+$conn = new mysqli($servername, $username, $password, $dbasename);
+
 
 
 if (!$conn) {
