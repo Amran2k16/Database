@@ -29,44 +29,43 @@
     </div>
 
     
-    <div class="row mt-2">
     <form method="POST">
-        <label for="semsterInputGroup ">Semester</label>
-        <select name="semesterSelect" id="semesterInputGroup" onchange="this.form.submit()">
-            <option selected value="all">Choose semester</option>
-            <option value="Autumn">Autumn</option>
-            <option value="Spring">Spring</option>
-            <option value="Summer">Summer</option>
-        </select> 
-    </form>
-    </div>
-   
-    <div class="row mt-2">
-    <form method="POST">
-        <label for="creditInputGroup">Credits</label>
-        <select name="creditSelect" id="creditInputGroup" onchange="this.form.submit()">
-            <option selected value="all">Choose credits</option>
-            <option value=20>20</option>
-            <option value=10>10</option>
-            <option value=5>5</option>
-        </select>
-    </form>
-    </div>
-   
-    <div class="row mt-2">
-    <form method="POST">
-        <label for="levelInputGroup ">Level</label>
-        <select name="levelSelect" id="levelInputGroup" onchange="this.form.submit()">
-            <option value="" selected>All</option>
-            <option value=4>4</option>
-            <option value=3>3</option>
-            <option value=2>2</option>
-            <option value=1>1</option>
-        </select> 
-    </form>
-    </div>
+        <div class="row mt-2">
+            <label for="semsterInputGroup ">Semester</label>
+            <select name="semesterSelect" id="semesterInputGroup" >
+                <option selected value="all">Choose semester</option>
+                <option value="Autumn">Autumn</option>
+                <option value="Spring">Spring</option>
+                <option value="Summer">Summer</option>
+            </select> 
+        </div>
+    
+        <div class="row mt-2">
+            <label for="creditInputGroup">Credits</label>
+            <select name="creditSelect" id="creditInputGroup">
+                <option selected value="all">Choose credits</option>
+                <option value=20>20</option>
+                <option value=10>10</option>
+                <option value=5>5</option>
+            </select>
+        </div>
+    
+        <div class="row mt-2">
+            <label for="levelInputGroup ">Level</label>
+            <select name="levelSelect" id="levelInputGroup" >
+                <option value="" selected>All</option>
+                <option value=4>4</option>
+                <option value=3>3</option>
+                <option value=2>2</option>
+                <option value=1>1</option>
+            </select> 
+        </div>
 
-    <!-- <button class="mt-2 mb-3">Filter</button> -->
+        <button type="submit" name="select-submit"class="mt-2 mb-3">Filter</button>
+
+    </form>
+    
+
 
     <div class=" table-header">
         <div class="row">
@@ -86,21 +85,14 @@
         $search_value="";
     }
 
-    $credit_value=$_POST["creditSelect"];
+    $department_value=$_POST["departmentSelect"];
     $semester_value=$_POST["semesterSelect"];
+    $credit_value=$_POST["creditSelect"];
     $level_value=$_POST["levelSelect"];
     
-    //get only values related to the search criteria
-    // $sql = "SELECT * FROM Module WHERE Title LIKE '%$search_value%'";
-    $sql = "SELECT * FROM Module WHERE Title LIKE ?";
-    // make the prepared statement
-
-    // $sql = "SELECT * FROM Module WHERE Credits='$credit_value' AND Semester='$semester_value' AND Level='$level_value' AND Title LIKE '%$search_value";
-
-    //  $sql = "SELECT * FROM Module WHERE (Credits='$credit_value?') and Title LIKE '%$search_value%'";
-
     
-    // i should query using prepared statements only
+    $sql = "SELECT * FROM Module WHERE Title LIKE ?";
+
 
     $result = mysqli_query($conn, $sql);
 
