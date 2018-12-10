@@ -3,7 +3,7 @@
     // $title = "dashboard";
     // $GLOBALS[ 'title' ] = 'dashboard';
     
-    $title = "modules";
+    $title = "Modules";
     include 'layout/header.php';
   
 ?>

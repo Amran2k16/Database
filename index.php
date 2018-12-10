@@ -1,6 +1,6 @@
 <?php
     // session_start();
-    $title = "dashboard";
+    $title = "Index";
     // $GLOBALS[ 'title' ] = 'dashboard';
     $page = 'one';
  include 'layout/header.php';
@@ -10,6 +10,8 @@
     <main>
         <?php echo "<h2> Welcome " . $_SESSION["username"] . "</h2>"; ?>
         <div class="container">
+        <div class="row">
+        
             <div class="card-columns">
                 <div class="card bg-primary">
                     <div class="card-body text-center">
@@ -31,6 +33,7 @@
                         <p class="card-text">View personal information</p>
                     </div>
             </div>
+        </div>
         </div>
         </div>
    

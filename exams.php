@@ -2,7 +2,7 @@
  // session_start();
  // $title = "dashboard";
  // $GLOBALS[ 'title' ] = 'dashboard';
-$title = "exams";
+$title = "Exams";
 
  include 'layout/header.php';
 ?>

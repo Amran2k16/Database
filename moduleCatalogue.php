@@ -1,6 +1,6 @@
 <?php
     require 'includes/dbh.inc.php';
-    $title = "modules";
+    $title = "nothing";
     include 'layout/header.php';
     // Make it work using department from database
 ?>

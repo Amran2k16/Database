@@ -12,7 +12,7 @@
             array_push($modulesEnrolledIn ,$row["moduleID"]);
         }
     }else{
-        echo '0 results';
+        echo '<p>You have not been enrolled into any modules</p>';
     }
     // join the array to a string
     $modulesEnrolledJoin = join("','",$modulesEnrolledIn);
@@ -34,7 +34,7 @@
         $Level = $row["Level"];
 
         echo "
-        
+        $moduleID
         <div class='card'>
             <div class='card-header module-hover' id='headingOne' data-toggle='collapse' data-target='#collapse".$i."' aria-expanded='true' aria-controls='collapse".$i."'>
                 <div class='row'>
@@ -69,9 +69,7 @@
         ";
 
     }
-    } else {
-    echo "0 results";
-    }
+    } 
 
     mysqli_close($conn);
 ?>

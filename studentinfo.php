@@ -1,5 +1,5 @@
 <?php // session_start(); // $title = "dashboard"; // $GLOBALS[ 'title' ] ='dashboard';  
-$title = "personal info";
+$title = "Personal Information";
 include 'layout/header.php';?>
 
   <main>

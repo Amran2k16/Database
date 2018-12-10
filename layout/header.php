@@ -52,9 +52,11 @@
                 <h3 class="text-white text-center align-self-end">SMS</h3>
             </div>
             <div class="col-10 bg-secondary h-100 ">
-                <div class="row justify-content-between align-items-center">
-                    <?php echo "<h2>" . $title . "</h2>" ?>
+                <div class="container">
+                     <div class="row justify-content-between align-items-center">
+                    <?php echo "<h2 class='ml-2'>" . $title . "</h2>" ?>
                     <a href="includes/logout.inc.php">Sign Out</a>
+                </div>
                 </div>
             </div>
         </div>
@@ -65,11 +67,11 @@
             <!-- Sidebar/navigation of website -->
             <div class="col-2 bg-dark h-100 ">
                 <nav class="nav nav-pills nav-fill flex-column">
-                    <a class="nav-link btn btn-secondary mb-2 mt-3 " href="index.php">Dashboard</a>
-                    <a class="nav-link btn btn-secondary mb-2" href="modules.php">Modules</a>
-                    <a class="nav-link btn btn-secondary mb-2" href="exams.php">Exams</a>
-                    <a class="nav-link btn btn-secondary mb-2" href="studentinfo.php">Personal Information</a>
-                    <a class="nav-link btn btn-secondary mb-2" href="timetable.php">Timetable</a>
+                    <a class="btn mb-2 mt-3 <?php if($title=='Index') echo 'btn-primary'; else {echo 'btn-secondary' ;} ?>" href="index.php">Dashboard</a>
+                    <a class="btn mb-2 <?php if($title=='Modules') echo 'btn-primary'; else {echo 'btn-secondary' ;} ?>" href="modules.php">Modules</a>
+                    <a class="btn mb-2 <?php if($title=='Exams') echo 'btn-primary'; else {echo 'btn-secondary' ;} ?>" href="exams.php">Exams</a>
+                    <a class="btn mb-2 <?php if($title=='Personal Information') echo 'btn-primary'; else {echo 'btn-secondary' ;} ?>" href="studentinfo.php">Personal Information</a>
+                    <a class="btn mb-2 <?php if($title=='Timetable') echo 'btn-primary'; else {echo 'btn-secondary' ;} ?>" href="timetable.php">Timetable</a>
                 </nav>
             </div>
 
