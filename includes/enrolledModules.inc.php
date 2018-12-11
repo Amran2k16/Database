@@ -59,41 +59,9 @@
         
         // Display detailed module information
         
-        // Get all the lecturerIDs Based on the current moduleID
-        $lecturerIDQuery = "SELECT lecturerID from TaughtBy WHERE ModuleID=$moduleID" ; 
-        $lecturerIDArray = array();
-        $lecturerResult = mysqli_query($conn, $lecturerIDQuery);
-        if (mysqli_num_rows($lecturerResult) > 0){
-            while($row = mysqli_fetch_assoc($lecturerResult))
-                 
-                array_push($lecturerIDArray ,$row["lecturerID"]);
-        }
-        else{
-            // echo '<p>This module does not currently have a lecturer assigned to it</p>';
-        }
-
-        $lecturerIDArrayJoined = join("','",$lecturerIDArray);
-
-        // echo json_encode($lecturerIDArrayJoined);
-        $lecturerInformationQuery = "SELECT * from Lecturer WHERE lecturerID IN ('$lecturerIDArrayJoined')";
-        $lecturerInformationResult = mysqli_query($conn, $lecturerInformationQuery);
-        $lecturerFirstNameArray = array();
-        $lecturerLastNameArray =array();
-        $lecturerEmailArray =array();
-
-        if (mysqli_num_rows($lecturerInformationResult) > 0){
-            while($row = mysqli_fetch_assoc($lecturerInformationResult)){
-                //store lecturers first name, last name and email into an array. Then for each item in the array 
-                // can show different tr
-                array_push($lecturerFirstNameArray ,$row["FirstName"]);
-                array_push($lecturerLastNameArray ,$row["LastName"]);
-                array_push($lecturerEmailArray ,$row["EmailAddress"]);
-            }
-        }
-        else{
-            // echo '<p>lecturer information result failed. shouldnt ever happen</p>';
-        }
-
+        // Get lecturers information. It returns an array containing information about all the lecturers which teach the current module
+        include 'includes/lecturerInformation.inc.php';
+        
         echo "
             <div id='collapse".$i."' class='collapse hide' aria-labelledby='headingOne' data-parent='#accordion'>
                 <div class='card-body'>
@@ -127,19 +95,8 @@
                             </tr>
                             <tr>
                                 <td class='h6'>Department</td>";
-                                if($DepartmentID !=NULL ){
-                                    $departmentInformation = "SELECT * from Department WHERE departmentID ='$DepartmentID'";
-                                    $departmentInformationResult = mysqli_query($conn, $departmentInformation);
-                                    if (mysqli_num_rows($departmentInformationResult) > 0){
-                                        $row = mysqli_fetch_assoc($departmentInformationResult);
-                                        $departmentName = $row["Name"];
-                                        echo"<td>$departmentName</td>";
-                                    }
-                                }
-                                else{
-                                    echo "<td>No department selected</td>";
-                                }
-                                    
+                                // Include the department information
+                                include 'includes/departmentInformation.inc.php';
                             echo "
                             </tr>
                         </tbody>
