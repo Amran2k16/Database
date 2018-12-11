@@ -32,6 +32,7 @@
         $Semester = $row["Semester"];
         $Level = $row["Level"];
         $Description = $row["Description"];
+        $DepartmentID = $row["departmentID"];
         // Get module convener details for that specific row...
 
 
@@ -59,7 +60,7 @@
                 array_push($lecturerIDArray ,$row["lecturerID"]);
         }
         else{
-            echo '<p>This module does not currently have a lecturer assigned to it</p>';
+            // echo '<p>This module does not currently have a lecturer assigned to it</p>';
         }
 
         $lecturerIDArrayJoined = join("','",$lecturerIDArray);
@@ -81,7 +82,7 @@
             }
         }
         else{
-            echo '<p>lecturer information result failed. shouldnt ever happen</p>';
+            // echo '<p>lecturer information result failed. shouldnt ever happen</p>';
         }
 
         echo "
@@ -99,9 +100,9 @@
                                 <td class='h6' >Module Convener</td > 
                                 <td>
                                 ";
-                                for ($i=0; $i < sizeof($lecturerFirstNameArray); $i++){
+                                for ($j=0; $j < sizeof($lecturerFirstNameArray); $j++){
                                     echo"
-                                    $lecturerFirstNameArray[$i] $lecturerLastNameArray[$i] </br> $lecturerEmailArray[$i] </br>
+                                    $lecturerFirstNameArray[$j] $lecturerLastNameArray[$j] </br> $lecturerEmailArray[$j] </br>
                                     ";
                                 }
                                 echo "
@@ -114,6 +115,23 @@
                             <tr>
                                 <td class='h6'>Assessment Method</td>
                                 <td>Coursework (40%) </br> Exam (60%)</td>
+                            </tr>
+                            <tr>
+                                <td class='h6'>Department</td>";
+                                if($DepartmentID !=NULL ){
+                                    $departmentInformation = "SELECT * from Department WHERE departmentID ='$DepartmentID'";
+                                    $departmentInformationResult = mysqli_query($conn, $departmentInformation);
+                                    if (mysqli_num_rows($departmentInformationResult) > 0){
+                                        $row = mysqli_fetch_assoc($departmentInformationResult);
+                                        $departmentName = $row["Name"];
+                                        echo"<td>$departmentName</td>";
+                                    }
+                                }
+                                else{
+                                    echo "<td>No department selected</td>";
+                                }
+                                    
+                            echo "
                             </tr>
                         </tbody>
                     </table>
