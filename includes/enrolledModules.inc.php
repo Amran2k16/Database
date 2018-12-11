@@ -33,6 +33,15 @@
         $Level = $row["Level"];
         $Description = $row["Description"];
         $DepartmentID = $row["departmentID"];
+        $AssessmentMethod = $row["AssessmentMethod"];
+        if($AssessmentMethod==NULL){
+            $AssessmentMethod = "The Assessment methods are not available";
+        }
+        $TimetabledHours = $row["TimetabledHours"];
+        if($TimetabledHours==NULL){
+            $TimetabledHours = "The Timetables Hours are not available";
+        }
+
         // Get module convener details for that specific row...
 
 
@@ -110,11 +119,11 @@
                             </tr>
                             <tr>
                                 <td class='h6'>Timetabled Hours</td>
-                                <td>Wednesday 11-1pm </br> Thursday 2-3pm</td>
+                                <td>$TimetabledHours</td>
                             </tr>
                             <tr>
                                 <td class='h6'>Assessment Method</td>
-                                <td>Coursework (40%) </br> Exam (60%)</td>
+                                <td>$AssessmentMethod</td>
                             </tr>
                             <tr>
                                 <td class='h6'>Department</td>";
