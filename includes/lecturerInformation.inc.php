@@ -34,6 +34,7 @@ $lecturerIDQuery = "SELECT lecturerID from TaughtBy WHERE ModuleID=$moduleID" ;
         }
         else{
             // echo '<p>lecturer information result failed. shouldnt ever happen</p>';
+            
         }
 
 ?>
