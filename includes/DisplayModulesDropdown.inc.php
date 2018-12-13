@@ -1,6 +1,6 @@
 <?php 
-
-    include 'includes/lecturerInformation.inc.php';
+    // Need lecturer information to display 
+    include 'includes/DisplayLecturerInformation.inc.php';
     
 
     echo "
@@ -18,11 +18,17 @@
                                 <td class='h6' >Module Convener</td > 
                                 <td>
                                 ";
-                                for ($j=0; $j < sizeof($lecturerFirstNameArray); $j++){
-                                    echo"
-                                    $lecturerFirstNameArray[$j] $lecturerLastNameArray[$j] </br> $lecturerEmailArray[$j] </br>
-                                    ";
+                                if(sizeof($lecturerFirstNameArray)==0){
+                                    echo"No Lecturer has been set";
                                 }
+                                else{
+                                    for ($j=0; $j < sizeof($lecturerFirstNameArray); $j++){
+                                        echo"
+                                        $lecturerFirstNameArray[$j] $lecturerLastNameArray[$j] </br> $lecturerEmailArray[$j] </br>
+                                        ";
+                                    }    
+                                }
+                                
                                 echo "
                                 </td>
                             </tr>
@@ -37,7 +43,7 @@
                             <tr>
                                 <td class='h6'>Department</td>";
                                 // Include the department information
-                                include 'includes/departmentInformation.inc.php';
+                                include 'includes/DisplayDepartmentInformation.inc.php';
                             echo "
                             </tr>
                         </tbody>

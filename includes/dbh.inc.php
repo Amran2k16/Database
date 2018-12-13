@@ -1,6 +1,6 @@
 <?php 
 
-// mersey connection
+// // mersey connection
 $servername = 'mysql.cs.nott.ac.uk';
 $username = 'psxma10';
 $password = 'hello123';

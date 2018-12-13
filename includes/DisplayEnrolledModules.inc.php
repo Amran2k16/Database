@@ -1,4 +1,7 @@
 <?php
+
+// This php file will display all the information regarding the modules the user has enrolled in
+
     require 'includes/dbh.inc.php';
     $userID=$_SESSION["userID"];
 
@@ -18,7 +21,8 @@
     $modulesEnrolledJoin = join("','",$modulesEnrolledIn);
 
     // get only the modules with the moduleID of those you have enrolled In
-    $sql = "SELECT * from Module WHERE moduleID IN ('$modulesEnrolledJoin')";   
+     
+    $sql = "SELECT * from Module WHERE moduleID IN ('$modulesEnrolledJoin') ORDER BY $sortBy";   
     $result = mysqli_query($conn, $sql);
 
     $i = 0; 
@@ -42,9 +46,6 @@
             $TimetabledHours = "The Timetables Hours are not available";
         }
 
-        // Get module convener details for that specific row...
-
-
         // Display the basic module information
         echo "
         <div class='card'>
@@ -54,16 +55,19 @@
                     <div class='col'>$Title</div>
                     <div class='col'>$Credits</div>
                     <div class='col'>$Semester</div>
+                    <div class='col'>$Level</div>
+
                 </div>
             </div>";
         
         // Display detailed module information
         
         // Get lecturers information. It returns an array containing information about all the lecturers which teach the current module
-        include 'includes/lecturerInformation.inc.php';
+        // Might not need this because its only required inside of displayModulesDropdown
+        // include 'includes/DisplayLecturerInformation.inc.php';
         
-        // Detailed information
-        include 'includes/modulesDropdown.inc.php';
+        // dropdown for each module header
+        include 'includes/DisplayModulesDropdown.inc.php';
         
     }
     } 

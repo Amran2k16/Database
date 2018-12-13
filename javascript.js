@@ -11,6 +11,6 @@ function catalogueFunction(elmnt, code) {
   window.location.href = 'moduleCatalogue.php?sortBy=' + code;
 }
 
-function moduleFunction(elmnt, code) {
-  window.location.href = 'module.php?sortBy=' + code;
+function another(elmnt, code) {
+  window.location.href = 'modules.php?sortBy=' + code;
 }
