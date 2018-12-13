@@ -18,8 +18,8 @@ if (isset($_POST['login-submit'])){
     else{
         //check the database to see if it matches an existing user and the password as well
         //use placeholders which will be replaced by preapared statements later
-        $sql = "SELECT * FROM Users WHERE UserName=?";
         $stmt = mysqli_stmt_init($conn);
+        $sql = "SELECT * FROM Users WHERE UserName=?";
 
         //check if statement has any errors..? 
         if(!mysqli_stmt_prepare($stmt,$sql)){

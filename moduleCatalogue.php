@@ -28,7 +28,7 @@
 
     <div class='accordion' id='accordion'>
 
-    <?php include 'includes/DisplayEnrolledModules.inc.php' ?>
+    <?php include 'includes/DisplayAllModules.inc.php' ?>
     
 </main>
 
